@@ -1,40 +1,21 @@
 package com.github.flaviodev.dp.model;
 
-public class ItemOrcamento {
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-	private double valor;
-	private String descricao;
-	private double quantidade;
+public @Data class ItemOrcamento {
 
+	public ItemOrcamento() {
+	}
+	
 	public ItemOrcamento(String descricao) {
 		this.descricao = descricao;
 	}
-
-	public double getValor() {
-		return valor;
-	}
-
-	public ItemOrcamento setValor(double valor) {
-		this.valor = valor;
-		return this;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public double getQuantidade() {
-		return quantidade;
-	}
-
-	public ItemOrcamento setQuantidade(double quantidade) {
-		this.quantidade = quantidade;
-		return this;
-	}
+	
+	private @Getter @Setter double valor;
+	private @Getter @Setter String descricao;
+	private @Getter @Setter double quantidade;
 
 	public double getTotalItem() {
 		return valor * quantidade;

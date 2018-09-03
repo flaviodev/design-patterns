@@ -3,7 +3,6 @@ package com.github.flaviodev.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import com.github.flaviodev.dp.builder.OrcamentoBuilder;
@@ -11,8 +10,6 @@ import com.github.flaviodev.dp.model.ItemOrcamento;
 import com.github.flaviodev.dp.model.Orcamento;
 
 public class OrcamentoBuilderTest {
-
-	private Logger logger = Logger.getLogger(OrcamentoBuilderTest.class);
 
 	@Test
 	public void deveCriarOrcamento() {
