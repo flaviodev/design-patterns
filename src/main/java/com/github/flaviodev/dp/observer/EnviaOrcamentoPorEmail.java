@@ -2,7 +2,7 @@ package com.github.flaviodev.dp.observer;
 
 import com.github.flaviodev.dp.model.Orcamento;
 
-public class EnviaOrcamentoPorEmail implements AcaoAposCriarOrcamento {
+public class EnviaOrcamentoPorEmail implements OrcamentoObserver {
 
 	@Override
 	public void executa(Orcamento orcamento) {
