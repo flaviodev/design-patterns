@@ -4,15 +4,12 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence 
 		http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 
-	<persistence-unit name="dpPu" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="dpPersistenceUnity" transaction-type="RESOURCE_LOCAL">
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-		<class>com.github.flaviodev.refactoring.model.Cedente</class>
-		<class>com.github.flaviodev.refactoring.model.Convenio</class>
-		<class>com.github.flaviodev.refactoring.model.Sacado</class>
-		<class>com.github.flaviodev.refactoring.model.Remessa</class>
-		<class>com.github.flaviodev.refactoring.model.TituloCobranca</class>
+		<class>com.github.flaviodev.dp.model.Orcamento</class>
+		<class>com.github.flaviodev.dp.model.Produto</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:dp" />

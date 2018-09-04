@@ -11,6 +11,7 @@ import org.junit.Test;
 import com.github.flaviodev.dp.model.Produto;
 import com.github.flaviodev.dp.observer.EnviaOrcamentoPorEmail;
 import com.github.flaviodev.dp.observer.ImprimeOrcamento;
+import com.github.flaviodev.dp.observer.PersisteOrcamento;
 import com.github.flaviodev.dp.model.Orcamento;
 
 public class OrcamentoObserverTest {
@@ -19,7 +20,7 @@ public class OrcamentoObserverTest {
 	public void deveCriarOrcamentoComObserver() {
 
 		Orcamento orcamento = Orcamento
-				.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new EnviaOrcamentoPorEmail()))
+				.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new EnviaOrcamentoPorEmail(), new PersisteOrcamento()))
 				.nomeCliente("José").nomeVendedor("João")
 				.produto(Produto.builder().descricao("Notebook").quantidade(1).valor(1000).build()).build();
 

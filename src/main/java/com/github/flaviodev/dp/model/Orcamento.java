@@ -2,26 +2,50 @@ package com.github.flaviodev.dp.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.GenericGenerator;
+
 import com.github.flaviodev.dp.model.base.Entidade;
 import com.github.flaviodev.dp.observer.OrcamentoObserver;
+import com.github.flaviodev.dp.persistence.UUIDGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Singular;
+import lombok.ToString;
 
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = "produtos")
+@EqualsAndHashCode(callSuper = true)
 @Builder
 public @Getter @Setter class Orcamento extends Entidade<String> {
 
+	private static final long serialVersionUID = 3770137614175816963L;
+
+	@Id
+	@GeneratedValue(generator = UUIDGenerator.NAME)
+	@GenericGenerator(name = UUIDGenerator.NAME, strategy = UUIDGenerator.PACKAGE_PATH)
+	@Column(name = "id_orcamento", length = 32)
 	private String id;
+	
 	private String nomeCliente;
 	private String nomeVendedor;
 	private boolean enviadoParaCliente;
 	private boolean impresso;
+	
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orcamento")
 	private @Singular @Getter List<Produto> produtos;
 
 	public void adicionaItem(Produto produto) {
