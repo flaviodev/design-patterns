@@ -7,8 +7,10 @@ import com.github.flaviodev.dp.model.base.Entidade;
 
 public interface Observer<I extends Serializable, E extends Entidade<I>, A extends AcaoObserver<E>> {
 
-	default void executaAcoes(List<A> acoes, E entidade) {
+	List<A> getAcoes();
+	
+	default void executaAcoes(E entidade) {
 
-		acoes.forEach(acao -> acao.executa(entidade));
+		getAcoes().forEach(acao -> acao.executa(entidade));
 	}
 }

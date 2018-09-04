@@ -5860,3 +5860,8 @@
 2018-09-03 06:34:59 INFO  ItemOrcamentoBuilder:35 - Criando item do orçamento
 2018-09-03 06:38:32 INFO  ItemOrcamentoBuilder:35 - Criando item do orçamento
 2018-09-03 06:38:43 INFO  ItemOrcamentoBuilder:35 - Criando item do orçamento
+2018-09-04 06:14:04 INFO  TestaEfetuaAcoesAposOrcamento:15 - 1000.0
+2018-09-04 06:22:50 INFO  ImprimeOrcamento:13 - imprime orcamento valor: 1000.0
+2018-09-04 06:22:50 INFO  EnviaOrcamentoPorEmail:13 - envia orcamento por e-mail para: José
+2018-09-04 06:29:47 INFO  ImprimeOrcamento:13 - imprime orcamento valor: 1000.0
+2018-09-04 06:29:47 INFO  EnviaOrcamentoPorEmail:13 - envia orcamento por e-mail para: José
