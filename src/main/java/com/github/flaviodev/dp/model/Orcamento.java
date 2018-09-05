@@ -11,9 +11,10 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.github.flaviodev.dp.model.base.Entidade;
+import com.github.flaviodev.dp.model.base.EntidadeCRUD;
 import com.github.flaviodev.dp.observer.OrcamentoObserver;
 import com.github.flaviodev.dp.persistence.UUIDGenerator;
+import com.github.flaviodev.dp.repository.OrcamentoRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -30,7 +31,7 @@ import lombok.ToString;
 @ToString(exclude = "produtos")
 @EqualsAndHashCode(callSuper = true)
 @Builder
-public @Getter @Setter class Orcamento extends Entidade<String> {
+public @Getter @Setter class Orcamento extends EntidadeCRUD<String, Orcamento, OrcamentoRepository> {
 
 	private static final long serialVersionUID = 3770137614175816963L;
 
@@ -54,7 +55,6 @@ public @Getter @Setter class Orcamento extends Entidade<String> {
 	}
 
 	public double getValorTotal() {
-
 		return getProdutos().stream().mapToDouble(Produto::getTotalItem).sum();
 	}
 

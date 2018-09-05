@@ -2,9 +2,9 @@ package com.github.flaviodev.dp.observer;
 
 import com.github.flaviodev.dp.model.Orcamento;
 
-import lombok.extern.log4j.Log4j;
+import lombok.extern.java.Log;
 
-@Log4j
+@Log
 public class EnviaOrcamentoPorEmail implements OrcamentoObserver {
 
 	@Override

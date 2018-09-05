@@ -1,7 +1,6 @@
 package com.github.flaviodev.dp.model.base;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.MappedSuperclass;
@@ -9,6 +8,7 @@ import javax.persistence.Version;
 
 import com.github.flaviodev.dp.persistence.Dao;
 
+@SuppressWarnings("rawtypes")
 @MappedSuperclass
 public abstract class Entidade<I extends Serializable> implements Serializable {
 
@@ -20,12 +20,12 @@ public abstract class Entidade<I extends Serializable> implements Serializable {
 	public abstract I getId();
 
 	public Integer getVersion() {
-		
+
 		return version;
 	}
 
 	public boolean isTransient() {
-		
+
 		return getId() == null;
 	}
 
@@ -34,49 +34,7 @@ public abstract class Entidade<I extends Serializable> implements Serializable {
 		return Dao.getEntityManager();
 	}
 
-	@SuppressWarnings("unchecked")
-	public <E extends Entidade<I>> E persiste() {
 
-		E entidade = (E) this;
-		EntityManager dao = getEntityManager();
-		dao.getTransaction().begin();
-
-		if (!isTransient())
-			dao.persist(this);
-		else
-			entidade = (E) dao.merge(this);
-
-		dao.getTransaction().commit();
-		dao.close();
-
-		return entidade;
-	}
-
-	public void exclui() {
-
-		if (isTransient())
-			throw new IllegalStateException("Entidade não está persistida");
-
-		EntityManager dao = getEntityManager();
-		dao.getTransaction().begin();
-		dao.remove(dao.merge(this));
-		dao.getTransaction().commit();
-		dao.close();
-	}
-	
-	@SuppressWarnings("unchecked")
-	public <E extends Entidade<I>> E get(I id) {
-		
-		return (E) getEntityManager().find(getClass(), id);
-	}
-
-	@SuppressWarnings("unchecked")
-	public <E extends Entidade<I>> List<E> get() {
-		
-		return Dao.createCriteria(getClass()).list();
-	}
-
-	
 	@Override
 	public int hashCode() {
 
@@ -99,7 +57,6 @@ public abstract class Entidade<I extends Serializable> implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 
-		@SuppressWarnings("rawtypes")
 		Entidade other = (Entidade) obj;
 		if (getId() == null) {
 
