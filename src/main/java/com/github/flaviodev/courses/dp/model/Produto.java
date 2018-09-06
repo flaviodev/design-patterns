@@ -9,8 +9,9 @@ import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import com.github.flaviodev.courses.dp.model.base.Entidade;
+import com.github.flaviodev.courses.dp.model.base.EntidadeCRUD;
 import com.github.flaviodev.courses.dp.persistence.UUIDGenerator;
+import com.github.flaviodev.courses.dp.repository.ProdutoRepository;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,7 +27,7 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public @Getter @Setter class Produto extends Entidade<String> {
+public @Getter @Setter class Produto extends EntidadeCRUD<String, Produto, ProdutoRepository> {
 
 	private static final long serialVersionUID = -4986824735185394270L;
 
