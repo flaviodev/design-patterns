@@ -1,5 +1,6 @@
 package com.github.flaviodev.courses.dp.model;
 
+import java.util.Collections;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -47,13 +48,12 @@ public @Getter @Setter class Orcamento extends EntidadeCRUD<String, Orcamento, O
 	private boolean impresso;
 
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "orcamento")
-	private @Singular @Getter List<Produto> produtos;
+	private @Singular List<Produto> produtos;
 
-	public void adicionaItem(Produto produto) {
-
-		getProdutos().add(produto);
+	public List<Produto> getProdutos() {
+		return Collections.unmodifiableList(produtos);
 	}
-
+	
 	public double getValorTotal() {
 		return getProdutos().stream().mapToDouble(Produto::getTotalItem).sum();
 	}
