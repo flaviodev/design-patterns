@@ -2,7 +2,6 @@ package com.github.flaviodev.courses.dp.model.base;
 
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
-import java.util.Optional;
 
 import javax.persistence.Transient;
 import javax.transaction.Transactional;
@@ -25,7 +24,6 @@ public abstract class EntidadeCRUD<I extends Serializable, E extends Entidade<I>
 	@Transient
 	private R repositorio;
 
-
 	private Class<R> getClasseRepositorio() {
 		return (Class<R>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[2];
 	}
@@ -45,9 +43,5 @@ public abstract class EntidadeCRUD<I extends Serializable, E extends Entidade<I>
 	@Transactional
 	public void excluir() {
 		getRepositorio().delete((E) this);
-	}
-
-	public Optional<E> getPeloId(I id) {
-		return getRepositorio().findById(id);
 	}
 }

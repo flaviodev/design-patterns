@@ -6,21 +6,20 @@ import java.util.List;
 import com.github.flaviodev.courses.dp.observer.OrcamentoObserver;
 import com.github.flaviodev.courses.dp.observer.base.Observer;
 
-
 public class OrcamentoComAcoesBuilder extends Orcamento.OrcamentoBuilder
 		implements Observer<String, Orcamento, OrcamentoObserver> {
 
 	private List<OrcamentoObserver> acoes = new ArrayList<>();
-	
+
 	@Override
 	public List<OrcamentoObserver> getAcoes() {
 		return acoes;
 	}
-	
+
 	public OrcamentoComAcoesBuilder(List<OrcamentoObserver> acoes) {
 		this.acoes.addAll(acoes);
 	}
-	
+
 	@Override
 	public Orcamento build() {
 		Orcamento orcamento = super.build();

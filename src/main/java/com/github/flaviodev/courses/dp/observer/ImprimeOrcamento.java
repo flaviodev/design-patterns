@@ -10,7 +10,6 @@ public class ImprimeOrcamento implements OrcamentoObserver {
 	@Override
 	public void executa(Orcamento orcamento) {
 		orcamento.setImpresso(true);
-		log.info(orcamento.getPeloId("2222").toString());
 		log.info("imprime orcamento valor: " + orcamento.getValorTotal());
 	}
 }

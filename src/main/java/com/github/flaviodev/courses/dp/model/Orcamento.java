@@ -2,20 +2,15 @@ package com.github.flaviodev.courses.dp.model;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.service.spi.InjectService;
-import org.springframework.beans.factory.annotation.Autowired;
 
-import com.github.flaviodev.courses.dp.model.base.Entidade;
 import com.github.flaviodev.courses.dp.model.base.EntidadeCRUD;
 import com.github.flaviodev.courses.dp.observer.OrcamentoObserver;
 import com.github.flaviodev.courses.dp.persistence.UUIDGenerator;
@@ -29,9 +24,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.Singular;
 import lombok.ToString;
-import lombok.extern.java.Log;
 
-@Log
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.github.flaviodev.courses.dp.model.Orcamento;
 
 @Repository
-public interface OrcamentoRepository extends JpaRepository<Orcamento, String>{
+public interface OrcamentoRepository extends JpaRepository<Orcamento, String> {
 
 }

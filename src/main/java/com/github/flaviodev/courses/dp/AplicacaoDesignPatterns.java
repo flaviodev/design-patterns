@@ -14,6 +14,7 @@ import com.github.flaviodev.courses.dp.model.Orcamento;
 import com.github.flaviodev.courses.dp.model.Produto;
 import com.github.flaviodev.courses.dp.model.base.Entidade;
 import com.github.flaviodev.courses.dp.observer.ImprimeOrcamento;
+import com.github.flaviodev.courses.dp.observer.PersisteOrcamento;
 
 @SpringBootApplication
 public class AplicacaoDesignPatterns {
@@ -22,20 +23,19 @@ public class AplicacaoDesignPatterns {
 		SpringApplication.run(AplicacaoDesignPatterns.class);
 	}
 
-	
 	public static <R extends JpaRepository<E, I>, E extends Entidade<I>, I extends Serializable> R getRepository(
 			Class<R> classeRepositorio) {
-			ApplicationContext context = Aplicacao.getContext();
-		
-			return context.getBean(classeRepositorio);
+		ApplicationContext context = ApplicationContextProvider.getContext();
+
+		return context.getBean(classeRepositorio);
 	}
 
 	@Bean
 	public CommandLineRunner demo() {
 		return (args) -> {
 
-			Orcamento orcamento = Orcamento.builderComAcoes(Arrays.asList(new ImprimeOrcamento())).nomeCliente("José")
-					.nomeVendedor("João")
+			Orcamento.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new PersisteOrcamento()))
+					.nomeCliente("José").nomeVendedor("João")
 					.produto(Produto.builder().descricao("Notebook").quantidade(1).valor(1000).build()).build();
 
 		};

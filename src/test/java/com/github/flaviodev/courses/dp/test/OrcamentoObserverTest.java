@@ -12,15 +12,16 @@ import com.github.flaviodev.courses.dp.model.Orcamento;
 import com.github.flaviodev.courses.dp.model.Produto;
 import com.github.flaviodev.courses.dp.observer.EnviaOrcamentoPorEmail;
 import com.github.flaviodev.courses.dp.observer.ImprimeOrcamento;
-import com.github.flaviodev.courses.dp.observer.PersisteOrcamento;
 
 public class OrcamentoObserverTest {
 
 	@Test
 	public void deveCriarOrcamentoComObserver() {
 
+		// mockear ApplicationContextProvider.getContext();
+
 		Orcamento orcamento = Orcamento
-				.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new EnviaOrcamentoPorEmail(), new PersisteOrcamento()))
+				.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new EnviaOrcamentoPorEmail()))
 				.nomeCliente("José").nomeVendedor("João")
 				.produto(Produto.builder().descricao("Notebook").quantidade(1).valor(1000).build()).build();
 
