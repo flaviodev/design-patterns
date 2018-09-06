@@ -58,8 +58,8 @@ public @Getter @Setter class Orcamento extends EntidadeCRUD<String, Orcamento, O
 		return getProdutos().stream().mapToDouble(Produto::getTotalItem).sum();
 	}
 
-	public static OrcamentoBuilder builderComAcoes(List<OrcamentoObserver> acoes) {
-		return new OrcamentoComAcoesBuilder(acoes);
+	public static OrcamentoBuilder observableBuilder(List<OrcamentoObserver> acoes) {
+		return new OrcamentoObservable(acoes);
 	}
 
 }

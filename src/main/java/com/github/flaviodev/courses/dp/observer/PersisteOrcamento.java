@@ -10,7 +10,7 @@ import lombok.extern.java.Log;
 public class PersisteOrcamento implements OrcamentoObserver {
 
 	@Override
-	public void executa(Orcamento orcamento) {
+	public void atualiza(Orcamento orcamento) {
 
 		orcamento.salvar();
 

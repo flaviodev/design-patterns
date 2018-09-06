@@ -34,7 +34,7 @@ public class AplicacaoDesignPatterns {
 	public CommandLineRunner demo() {
 		return (args) -> {
 
-			Orcamento.builderComAcoes(Arrays.asList(new ImprimeOrcamento(), new PersisteOrcamento()))
+			Orcamento.observableBuilder(Arrays.asList(new ImprimeOrcamento(), new PersisteOrcamento()))
 					.nomeCliente("José").nomeVendedor("João")
 					.produto(Produto.builder().descricao("Notebook").quantidade(1).valor(1000).build()).build();
 

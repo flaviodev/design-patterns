@@ -8,7 +8,7 @@ import lombok.extern.java.Log;
 public class ImprimeOrcamento implements OrcamentoObserver {
 
 	@Override
-	public void executa(Orcamento orcamento) {
+	public void atualiza(Orcamento orcamento) {
 		orcamento.setImpresso(true);
 		log.info("imprime orcamento valor: " + orcamento.getValorTotal());
 	}

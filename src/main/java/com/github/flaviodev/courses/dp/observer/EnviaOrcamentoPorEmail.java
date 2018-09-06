@@ -8,7 +8,7 @@ import lombok.extern.java.Log;
 public class EnviaOrcamentoPorEmail implements OrcamentoObserver {
 
 	@Override
-	public void executa(Orcamento orcamento) {
+	public void atualiza(Orcamento orcamento) {
 		orcamento.setEnviadoParaCliente(true);
 		log.info("envia orcamento por e-mail para: " + orcamento.getNomeCliente());
 	}
