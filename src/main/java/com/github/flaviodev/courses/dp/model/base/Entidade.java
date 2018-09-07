@@ -15,6 +15,7 @@ public abstract class Entidade<I extends Serializable> implements Serializable {
 	private Integer version;
 
 	public abstract I getId();
+	public abstract void setId(I id);
 
 	public Integer getVersion() {
 

@@ -14,6 +14,10 @@ public class UUIDGenerator implements IdentifierGenerator {
 
 	@Override
 	public Serializable generate(SharedSessionContractImplementor session, Object object) throws HibernateException {
+		return uuid();
+	}
+
+	public static String uuid() {
 		return UUID.randomUUID().toString().replace("-", "");
 	}
 }

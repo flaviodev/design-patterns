@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.github.flaviodev.courses.dp.AplicacaoDesignPatterns;
+import com.github.flaviodev.courses.dp.Aplicacao;
 
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
@@ -30,7 +30,7 @@ public abstract class EntidadeCRUD<I extends Serializable, E extends Entidade<I>
 
 	protected R getRepositorio() {
 		if (repositorio == null)
-			repositorio = AplicacaoDesignPatterns.getRepository(getClasseRepositorio());
+			repositorio = Aplicacao.getRepository(getClasseRepositorio());
 
 		return repositorio;
 	}
