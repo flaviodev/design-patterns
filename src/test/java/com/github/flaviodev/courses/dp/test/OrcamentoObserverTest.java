@@ -3,8 +3,8 @@ package com.github.flaviodev.courses.dp.test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
 import java.util.Arrays;
 
@@ -30,8 +30,8 @@ import com.github.flaviodev.courses.dp.test.repository.ProdutoRepositoryMock;
 public class OrcamentoObserverTest {
 
 	@Before
-	public void preparaTeste() {
-		mock(Aplicacao.class);
+	public void preparaTeste() { 	
+		mockStatic(Aplicacao.class);
 
 		when(Aplicacao.getRepository(OrcamentoRepository.class)).thenReturn(new OrcamentoRepositoryMock());
 		when(Aplicacao.getRepository(ProdutoRepository.class)).thenReturn(new ProdutoRepositoryMock());
