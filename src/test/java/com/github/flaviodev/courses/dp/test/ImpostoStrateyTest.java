@@ -1,6 +1,6 @@
 package com.github.flaviodev.courses.dp.test;
 
-import static org.junit.Assert.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -21,7 +21,7 @@ public class ImpostoStrateyTest {
 		Imposto imposto1 = new ICMS();
 		Imposto imposto2 = new ISS();
 
-		assertEquals(new Double(100), new Double(imposto1.calculaImposto(orcamento)));
-		assertEquals(new Double(50), new Double(imposto2.calculaImposto(orcamento)));
+		assertThat(imposto1.calculaImposto(orcamento)).isEqualTo(100);
+		assertThat(imposto2.calculaImposto(orcamento)).isEqualTo(50);
 	}
 }

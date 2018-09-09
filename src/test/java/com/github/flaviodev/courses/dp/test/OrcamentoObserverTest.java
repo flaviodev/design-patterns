@@ -1,8 +1,6 @@
 package com.github.flaviodev.courses.dp.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 import static org.powermock.api.mockito.PowerMockito.mockStatic;
 
@@ -30,7 +28,7 @@ import com.github.flaviodev.courses.dp.test.repository.ProdutoRepositoryMock;
 public class OrcamentoObserverTest {
 
 	@Before
-	public void preparaTeste() { 	
+	public void preparaTeste() {
 		mockStatic(Aplicacao.class);
 
 		when(Aplicacao.getRepository(OrcamentoRepository.class)).thenReturn(new OrcamentoRepositoryMock());
@@ -46,11 +44,11 @@ public class OrcamentoObserverTest {
 				.nomeCliente("José").nomeVendedor("João")
 				.produto(Produto.builder().descricao("Notebook").quantidade(1).valor(1000).build()).build();
 
-		assertNotNull("Orcamento não deve ser null", orcamento);
-		assertEquals("José", orcamento.getNomeCliente());
-		assertEquals("João", orcamento.getNomeVendedor());
-		assertTrue("Devia ter sido impresso", orcamento.isImpresso());
-		assertTrue("Devia ter sido enviado ao cliente", orcamento.isEnviadoParaCliente());
+		assertThat(orcamento).isNotNull();
+		assertThat(orcamento.getNomeCliente()).isEqualTo("José");
+		assertThat(orcamento.getNomeVendedor()).isEqualTo("João");
+		assertThat(orcamento.isImpresso()).isTrue();
+		assertThat(orcamento.isEnviadoParaCliente()).isTrue();
 	}
 
 }

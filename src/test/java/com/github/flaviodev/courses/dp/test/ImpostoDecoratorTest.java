@@ -1,7 +1,6 @@
 package com.github.flaviodev.courses.dp.test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.Test;
 
@@ -20,7 +19,7 @@ public class ImpostoDecoratorTest {
 
 		ICMS icmsCompostoComISS = new ICMS(new ISS());
 
-		assertNotNull("Imposto composto não deve ser null", icmsCompostoComISS);
-		assertEquals(new Double(150), new Double(icmsCompostoComISS.calculaImposto(orcamento)));
+		assertThat(icmsCompostoComISS).isNotNull();
+		assertThat(icmsCompostoComISS.calculaImposto(orcamento)).isEqualTo(150);
 	}
 }
